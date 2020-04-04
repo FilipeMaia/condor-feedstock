@@ -1,11 +1,26 @@
+{% set name = "condor" %}
+{% set version = "1.0.7a" %}
+{% set build = 0 %}
+
 package:
-  name: condor
-  version: '1.0.6'
+  name: {{ name }}
+  version: {{ version }}
 
 source:
-  git_rev: 1.0.6
+  git_tag: master
   git_url: https://github.com/FXIhub/condor.git
 
+build:
+  number: {{ build }}
+  # There are dependency conflicts for Python 2 on Windows
+  skip: True  # [win and py<30]
+  # There are dependency conflicts for Python 3.8 on Windows
+  skip: True  # [win and py>=38]
+  # To start with
+  skip: True  # [win or osx]
+  skip: True  # [py != 37]
+
+  
 requirements:
   host:
     - python
@@ -21,6 +36,7 @@ requirements:
     - scipy
     - h5py
     - nfft
+    - libspimage
 
 test:
   imports:
