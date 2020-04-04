@@ -17,7 +17,6 @@ build:
   # There are dependency conflicts for Python 3.8 on Windows
   skip: True  # [win and py>=38]
   # To start with
-  skip: True  # [win or osx]
   skip: True  # [py != 37]
 
   
