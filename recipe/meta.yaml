@@ -22,6 +22,10 @@ build:
 
   
 requirements:
+  build:
+    - git
+    - {{ compiler('c') }} # [not osx]
+    
   host:
     - python
     - setuptools
