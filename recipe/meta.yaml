@@ -16,9 +16,8 @@ build:
   skip: True  # [win and py<30]
   # There are dependency conflicts for Python 3.8 on Windows
   skip: True  # [win and py>=38]
-  # To start with
-  skip: True  # [py != 37]
-
+  # No nfft on windows
+  skip: True  # [win]
   
 requirements:
   build:
